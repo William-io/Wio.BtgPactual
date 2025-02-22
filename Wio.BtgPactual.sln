@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wio.BtgPactual.Domain", "Source\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj", "{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wio.BtgPactual.Infrastructure.Bus", "Source\Wio.BtgPactual.Infrastructure.Bus\Wio.BtgPactual.Infrastructure.Bus.csproj", "{26686CF0-0A34-4BB8-833D-F6047A737180}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26686CF0-0A34-4BB8-833D-F6047A737180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26686CF0-0A34-4BB8-833D-F6047A737180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26686CF0-0A34-4BB8-833D-F6047A737180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26686CF0-0A34-4BB8-833D-F6047A737180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{26686CF0-0A34-4BB8-833D-F6047A737180} = {F44E26C0-A635-4D53-BDBB-A853F1218115}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {17999FAA-CC16-421F-A152-251131A09349}
