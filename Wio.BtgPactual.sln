@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.Bus", "Infrastructure.Bus", "{F44E26C0-A635-4D53-BDBB-A853F1218115}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure.IOC", "Infrastructure.IOC", "{A565A471-E460-4D04-B63A-B5020A60BB82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{05710799-7514-4BD1-8B17-C0C378084CC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wio.BtgPactual.Domain", "Source\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj", "{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D62A9E6-CBE7-48D5-804C-3CA900CC38F1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17999FAA-CC16-421F-A152-251131A09349}
+	EndGlobalSection
+EndGlobal
