@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="CommandHandler\" />
+    <Folder Include="Command\" />
+    <Folder Include="Events\" />
+    <Folder Include="EventHandlers\" />
+  </ItemGroup>
+
+</Project>
