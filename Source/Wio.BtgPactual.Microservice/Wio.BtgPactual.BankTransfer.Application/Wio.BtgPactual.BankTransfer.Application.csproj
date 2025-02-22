@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EventHandlers\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj" />
+    <ProjectReference Include="..\Wio.BtgPactual.BankTranfer.Infrastructure\Wio.BtgPactual.BankTranfer.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

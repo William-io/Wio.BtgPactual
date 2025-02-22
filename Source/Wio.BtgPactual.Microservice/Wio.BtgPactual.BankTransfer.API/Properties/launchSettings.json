@@ -4,17 +4,27 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:55019",
-      "sslPort": 44353
+      "applicationUrl": "http://localhost:18387",
+      "sslPort": 44349
     }
   },
   "profiles": {
-    "Wio.BtgPactual.Banking.API": {
+    "http": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5090",
+      "applicationUrl": "http://localhost:5078",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7056;http://localhost:5078",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

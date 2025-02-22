@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj" />
     <ProjectReference Include="..\Wio.BtgPactual.Infrastructure.Bus\Wio.BtgPactual.Infrastructure.Bus.csproj" />
     <ProjectReference Include="..\Wio.BtgPactual.Microservice\Wio.BtgPactual.Banking.Application\Wio.BtgPactual.Banking.Application.csproj" />
+    <ProjectReference Include="..\Wio.BtgPactual.Microservice\Wio.BtgPactual.BankTransfer.Application\Wio.BtgPactual.BankTransfer.Application.csproj" />
   </ItemGroup>
 
 </Project>

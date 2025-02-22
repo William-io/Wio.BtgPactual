@@ -1,0 +1,6 @@
+@Wio.BtgPactual.BankTransfer.API_HostAddress = http://localhost:5078
+
+GET {{Wio.BtgPactual.BankTransfer.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

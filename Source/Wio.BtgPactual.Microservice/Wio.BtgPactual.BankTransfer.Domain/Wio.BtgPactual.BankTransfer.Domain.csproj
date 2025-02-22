@@ -5,13 +5,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+	
   <ItemGroup>
-    <Folder Include="EventHandlers\" />
+    <ProjectReference Include="..\..\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Wio.BtgPactual.Domain\Wio.BtgPactual.Domain.csproj" />
+    <Folder Include="CommandHandlers\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>

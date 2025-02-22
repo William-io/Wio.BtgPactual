@@ -4,9 +4,19 @@ using Wio.BtgPactual.Banking.Application.Interfaces;
 using Wio.BtgPactual.Banking.Application.Services;
 using Wio.BtgPactual.Banking.Domain.CommandHandler;
 using Wio.BtgPactual.Banking.Domain.Commands;
+
 using Wio.BtgPactual.Banking.Domain.Interfaces;
 using Wio.BtgPactual.Banking.Infrastructure.Context;
 using Wio.BtgPactual.Banking.Infrastructure.Repository;
+using Wio.BtgPactual.BankTranfer.Infrastructure.Context;
+using Wio.BtgPactual.BankTranfer.Infrastructure.Migrations;
+using Wio.BtgPactual.BankTranfer.Infrastructure.Repository;
+using Wio.BtgPactual.BankTransfer.Application.Interfaces;
+using Wio.BtgPactual.BankTransfer.Application.Services;
+using Wio.BtgPactual.BankTransfer.Domain.EventHandlers;
+using Wio.BtgPactual.BankTransfer.Domain.Events;
+using Wio.BtgPactual.BankTransfer.Domain.Interfaces;
+using Wio.BtgPactual.Domain.Bus;
 using Wio.BtgPactual.Infrastructure.Bus;
 using Wio.BtgPactual.Infrastructure.IOC;
 
@@ -19,13 +29,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("BankingConnection");
+var connectionString = builder.Configuration.GetConnectionString("BankTransferConnection");
 if (string.IsNullOrEmpty(connectionString))
 {
-    throw new InvalidOperationException("Connection string 'BankingConnection' is not found.");
+    throw new InvalidOperationException("Connection string 'BankTransferConnection' is not found.");
 }
 
-builder.Services.AddDbContext<BankingPactualContext>(options =>
+builder.Services.AddDbContext<BankTransferContext>(options =>
 {
     options.UseSqlServer(connectionString);
 });
@@ -35,11 +45,12 @@ builder.Services.Configure<RabbitSettings>(builder.Configuration.GetSection("Rab
 
 builder.Services.RegisterServices(builder.Configuration);
 
-builder.Services.AddTransient<IAccountService, AccountService>();
-builder.Services.AddTransient<IAccountRepository, AccountRepository>();
-builder.Services.AddTransient<BankingPactualContext>();
 
-builder.Services.AddTransient<IRequestHandler<CreateBankTransferCommand, bool>, BankTransferCommandHandler>();
+builder.Services.AddTransient<ITransferService, TransferService>();
+builder.Services.AddTransient<ITransferRepository, TransferRepository>();
+builder.Services.AddTransient<BankTransferContext>();
+
+builder.Services.AddTransient<IEventHandler<BankTransferCreatedEvent>, BankTransferEventHandler>();
 
 
 builder.Services.AddCors(options =>
@@ -53,6 +64,9 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+var eventBus = app.Services.GetRequiredService<IEventBus>();
+eventBus.Subscribe<BankTransferCreatedEvent, BankTransferEventHandler>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

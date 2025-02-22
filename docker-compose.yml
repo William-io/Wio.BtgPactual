@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  bankingapi:
+    image: wio.btgpactual.banking.api
+    build:
+      context: .
+      dockerfile: Source/Wio.BtgPactual.Microservice/Wio.BtgPactual.Banking.API/Dockerfile
+    depends_on:
+      - sqlserver
+      - rabbitmq
+    environment:
+      - ConnectionStrings__BankingConnection=Server=sqlserver;Database=Pactualdata;User=sa;Password=Your_password123;
+      - RabbitSettings__Hostname=rabbitmq
+      - RabbitSettings__Username=guest
+      - RabbitSettings__Password=guest
+    ports:
+      - "5090:80"
+
+  banktransferapi:
+    image: wio.btgpactual.banktransfer.api
+    build:
+      context: .
+      dockerfile: Source/Wio.BtgPactual.Microservice/Wio.BtgPactual.BankTransfer.API/Dockerfile
+    depends_on:
+      - sqlserver
+      - rabbitmq
+    environment:
+      - ConnectionStrings__BankTransferConnection=Server=sqlserver;Database=PactualBankTransfer;User=sa;Password=Your_password123;
+      - RabbitSettings__Hostname=rabbitmq
+      - RabbitSettings__Username=guest
+      - RabbitSettings__Password=guest
+    ports:
+      - "5078:80"
