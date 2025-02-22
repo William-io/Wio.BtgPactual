@@ -3,10 +3,8 @@ using Wio.BtgPactual.Banking.Domain.Entities;
 
 namespace Wio.BtgPactual.Banking.Infrastructure.Context;
 
-public class BankingPactualContext : DbContext
+public class BankingPactualContext(DbContextOptions<BankingPactualContext> options) : DbContext(options)
 {
-    public BankingPactualContext(DbContextOptions<BankingPactualContext> options) : base(options) { }
-    public DbSet<Account> Accounts { get; set; }
-
+    public DbSet<Account> Accounts { get; set; } = null!;
 }
 
